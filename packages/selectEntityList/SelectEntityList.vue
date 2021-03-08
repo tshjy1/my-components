@@ -52,10 +52,10 @@ export default {
   },
   methods: {
     setTemplate() {
-      if(!!this.needMoreApi) {
+      if(this.needMoreApi) {
         this.templateConfigArray = this.templateCoustonArray || getEntityConfig(this.templateType, this)
       } else {
-        if (!!this.templateType) this.hasTemplateCon = getEntityConfig(this.templateType, this)
+        if (this.templateType) this.hasTemplateCon = getEntityConfig(this.templateType, this)
       }
     },
     processRes(res) {

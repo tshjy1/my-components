@@ -1,6 +1,4 @@
 const path = require('path')
-const ProxyAgent = require('proxy-agent')
-
 function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }

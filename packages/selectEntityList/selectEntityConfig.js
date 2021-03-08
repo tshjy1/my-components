@@ -1,5 +1,4 @@
 /**
- * 
  * @param {*} errMsg 错误校验提示
  * @param {*} selfValidMark 检验字段校验条件（避免死循环）
  * @param {*} relativeValidMark 关联字段校验条件（避免死循环）
@@ -19,7 +18,7 @@ export function createValidateFunc({ errMsg, selfValidMark, validMark, relativeV
     vm[selfValidMark] = true
     setTimeout(() => {
       const checkForm = !vm.modelForm[relativeField] && !vm.modelForm[currentField]
-      const isCheck = !!validMark ? checkForm && vm[validMark] : checkForm
+      const isCheck = !validMark ? vm[validMark] : checkForm && checkForm 
       if (isCheck) {
         callback(new Error(errMsg))
       } else {
@@ -35,27 +34,36 @@ import { commonColumns } from './columns.js'
  * @param {*} type 
  * @param {*} _this 
  */
-export function templateConfig(type, _this) {
-  const config = {}
+export function templateConfig(type, /**_this*/) {
+  const config = {
+    // hfmAccount: {// 科目HFM
+    //   modelTitle: _this.$t('module.metaData.hfmaccountmeta'),
+    //   keyCode: 'accountCode',
+    //   keyName: 'accountName',
+    //   keyCodeTitle: _this.$t('module.metaData.hfmaccountcode'),
+    //   keyNameTitle: _this.$t('module.metaData.hfmaccountname'),
+    //   keyFun: queryAccountListHFM
+    // },
+  }
   return config[type] || {}
 }
 
-export function getValueSet(type) {
-  let valueSetConfig = {
-    modelTitle: '',
-    keyCode: '',
-    keyName: '',
-    keyCodeTitle: '',
-    keyNameTitle: '',
-    keyFun: null
-  }
-  switch(type) {
-    case 'hfmAccount': 
+// export function getValueSet(type) {
+//   let valueSetConfig = {
+//     modelTitle: '',
+//     keyCode: '',
+//     keyName: '',
+//     keyCodeTitle: '',
+//     keyNameTitle: '',
+//     keyFun: null
+//   }
+//   switch(type) {
+//     case 'hfmAccount': 
     
-    default: break;
-  }
-  return valueSetConfig
-}
+//     default: break;
+//   }
+//   return valueSetConfig
+// }
 
 function getConfig(template) {
   return {

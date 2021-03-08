@@ -1,5 +1,7 @@
-import datePicker from '../packages/datePicker/index'
+import datePickerStr from '../packages/datePickerStr/index'
+import SelectEntityList from '../packages/selectEntityList/index'
 
 export const components = {
-  datePicker,
+  datePickerStr,
+  SelectEntityList,
 }
