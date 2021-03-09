@@ -1,12 +1,14 @@
 import Main from '../views/main'
 
+import compExamples from './compExamples'
+
 export default {
   routes: [
     {
       path: '/',
-      name: 'main',
+      // name: 'home',
       component: Main,
-      children: []
+      children: [ ...compExamples ]
     }
   ]
 };
