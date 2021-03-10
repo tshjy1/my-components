@@ -1,0 +1,16 @@
+[{
+  "menuKey": "1",
+  "name": "组件实例",
+  "children": [
+    {
+      "menuKey": "1-1",
+      "path": "datePickerStr",
+      "name": "时间字符串"
+    },
+    {
+      "menuKey": "1-2",
+      "path": "remoteSelect",
+      "name": "select远程搜索"
+    }
+  ]
+}]

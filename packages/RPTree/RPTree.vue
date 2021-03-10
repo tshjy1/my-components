@@ -16,13 +16,13 @@ export default {
   methods: {
     _onCheckChange() {
       let notes = this.getCheckedAndIndeterminateNodes();
-      this.$emit("on-check-change", notes);
+      this.$emit('on-check-change', notes);
     },
     _onSelectChange(nodes) {
-      this.$emit("on-select-change", nodes);
+      this.$emit('on-select-change', nodes);
     },
     _onToggleExpand(node) {
-      this.$emit("on-toggle-expand", node);
+      this.$emit('on-toggle-expand', node);
     },
     getCheckedAndIndeterminateNodes() {
       /* public API */

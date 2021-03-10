@@ -3,10 +3,17 @@
  */
 export default [
   {
-    path: '/',
-    name: 'home',
+    path: '/datePickerStr',
+    name: 'datePickerStr',
     component: (resolve) => {
-      require(['../../views/home'], resolve)
+      require(['../../views/compExamples/datePickerStr'], resolve)
     }
-  }
+  },
+  {
+    path: '/remoteSelect',
+    name: 'remoteSelect',
+    component: (resolve) => {
+      require(['../../views/compExamples/remoteSelect'], resolve)
+    }
+  },
 ]

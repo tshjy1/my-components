@@ -4,8 +4,8 @@ import VueRouter from 'vue-router'
 import store from './store'
 import VUEi18 from 'vue-i18n'
 
-import ViewUI from 'view-design';
-import 'view-design/dist/styles/iview.css';
+import ViewUI from 'view-design'
+import 'view-design/dist/styles/iview.css'
 
 import routerConfig from './router'
 import { components } from './components.js'

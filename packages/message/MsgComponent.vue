@@ -30,7 +30,7 @@
 
 <script>
 export default {
-  name: "rp-msg",
+  name: 'rp-msg',
   data() {
     return {
       dropdwon: false
@@ -43,14 +43,14 @@ export default {
     },
     type: {
       type: String,
-      default: "info"
+      default: 'info'
     }
   },
   methods: {
     changeDrop() {
       if (!this.item.more) return;
       this.dropdwon = !this.dropdwon;
-      typeof this.item.clearTime === "function" && this.item.clearTime();
+      typeof this.item.clearTime === 'function' && this.item.clearTime();
     }
   }
 };
