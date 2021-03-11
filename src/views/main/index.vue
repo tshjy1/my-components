@@ -12,7 +12,7 @@
       </div>
     </div>
     <div class="main_footer">
-
+      Copyright © {{$t('common.user')}}
     </div>
   </div>
 </template>
@@ -30,7 +30,7 @@ export default {
   data() {
     return {
       mainHeightBox: document.documentElement.clientHeight,
-      langKey: localStorage.getItem('lang') || 'LANG-CN'
+      langKey: localStorage.getItem('lang') || sessionStorage.getItem('lang') || 'LANG-CN'
     }
   },
   computed: {
@@ -41,6 +41,7 @@ export default {
   watch: {
     langKey(newV) {
       this.$i18n.locale = newV;
+      sessionStorage.setItem('lang', newV)
     }
   }
 }
@@ -57,6 +58,7 @@ export default {
     height: 50px;
     width: 100%;
     background-color: white;
+    border-bottom: .5px solid #dcdee2;
   }
 
   .main_sidlider_menu,
@@ -70,16 +72,31 @@ export default {
     left: 0;
     width: 200px;
     background-color: #515a6e;
+    border: .5px solid #515a6e;
+    border-left: none;
     .ivu-menu-submenu-title {
-      padding: 14px 15px;
+      padding: 10px 10px;
       display: flex;
+      span {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        margin-right: 22px;
+      }
     }
     .ivu-menu-item {
-      padding-left: 0!important;
+      text-align: left;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      padding: 10px 10px;
+    }
+    .ivu-menu-submenu .ivu-menu-item {
+      padding-left: 36px!important;
     }
     .ivu-menu-vertical .ivu-menu-submenu-title-icon {
       font-size: 20px;
-      right: 15px;
+      right: 0px;
     }
   }
 
@@ -90,6 +107,8 @@ export default {
     width: calc(100% - 220px);
     overflow: auto;
     background-color: #fff;
+    padding: 10px;
+    border: .5px solid #dcdee2;
   }
   .main_footer {
     position: absolute;
@@ -98,6 +117,11 @@ export default {
     height: 50px;
     width: 100%;
     background-color: @mainColor;
+    border-top: .5px solid #dcdee2;
+    text-align: center;
+    font-size: 12px;
+    color: gray;
+    line-height: 50px;
   }
 }
 </style>

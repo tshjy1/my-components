@@ -4,12 +4,15 @@
       <template v-for="item in menulist" >
         <Submenu v-if="item.children && item.children.length > 0" :key="item.menuKey" :name="item.menuKey">
           <template slot="title">
-            <Icon class="menu_title_icon" type="ios-paper" />
+            <Icon class="menu_title_icon" :type="item.icon || 'ios-list-box'" />
             <span>{{item.name}}</span>
           </template>
           <side-menu :menulist="item.children"/>
         </Submenu>
-        <MenuItem v-else :name="item.menuKey" :to="item.path" :key="item.name">{{item.name}}</MenuItem>
+        <MenuItem v-else :name="item.menuKey" :to="item.path" :key="item.name">
+          <Icon :type="item.icon || 'md-arrow-dropright'" />
+          {{item.name}}
+        </MenuItem>
       </template>
     </Menu>
   </div>

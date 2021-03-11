@@ -1,16 +1,16 @@
-import test from './test.js'
+import compExamples from './compExamples.js'
 
 export default {
   'LANG-CN': {
-    test: test['LANG-CN']
+    compExamples: compExamples['LANG-CN']
   },
   'LANG-TRZH': {
-    test: test['LANG-TRZH']
+    compExamples: compExamples['LANG-TRZH']
   },
   'LANG-US': {
-    test: test['LANG-US']
+    compExamples: compExamples['LANG-US']
   },
   'LANG-JA': {
-    test: test['LANG-JA']
+    compExamples: compExamples['LANG-JA']
   }
 }

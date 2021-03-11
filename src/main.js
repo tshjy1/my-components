@@ -32,7 +32,7 @@ const messages = {
   'LANG-JA': langSource['LANG-JA'],
 }
 const i18n = new VUEi18({
-  locale: localStorage.getItem('lang') || 'LANG-CN',
+  locale: localStorage.getItem('lang') || sessionStorage.getItem('lang') || 'LANG-CN',
   messages
 })
 
