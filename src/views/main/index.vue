@@ -1,10 +1,10 @@
 <template>
   <div id="main_content" :style="{ height: `${mainHeightBox}px` }">
     <div class="main_nav">
-      <mainHeader />
+      <mainHeader v-model="langKey"/>
     </div>
     <div class="main_sidlider_menu">
-      <sideMenu :menulist="menuConfig"/>
+      <sideMenu :menulist="menuList"/>
     </div>
     <div class="main_center">
       <div class="main_content_show">
@@ -30,7 +30,17 @@ export default {
   data() {
     return {
       mainHeightBox: document.documentElement.clientHeight,
-      menuConfig
+      langKey: localStorage.getItem('lang') || 'LANG-CN'
+    }
+  },
+  computed: {
+    menuList() {
+      return menuConfig[this.langKey]
+    }
+  },
+  watch: {
+    langKey(newV) {
+      this.$i18n.locale = newV;
     }
   }
 }

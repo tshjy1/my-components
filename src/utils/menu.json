@@ -1,16 +1,74 @@
-[{
-  "menuKey": "1",
-  "name": "组件实例",
-  "children": [
+{
+  "LANG-CN": [
     {
-      "menuKey": "1-1",
-      "path": "datePickerStr",
-      "name": "时间字符串"
-    },
+      "menuKey": "1",
+      "name": "组件实例",
+      "children": [
+        {
+          "menuKey": "1-1",
+          "path": "datePickerStr",
+          "name": "时间字符串"
+        },
+        {
+          "menuKey": "1-2",
+          "path": "remoteSelect",
+          "name": "select远程搜索"
+        }
+      ]
+    }
+  ],
+  "LANG-TRZH": [
     {
-      "menuKey": "1-2",
-      "path": "remoteSelect",
-      "name": "select远程搜索"
+      "menuKey": "1",
+      "name": "組件實例",
+      "children": [
+        {
+          "menuKey": "1-1",
+          "path": "datePickerStr",
+          "name": "時間字串"
+        },
+        {
+          "menuKey": "1-2",
+          "path": "remoteSelect",
+          "name": "select遠程蒐索"
+        }
+      ]
+    }
+  ],
+  "LANG-US": [
+    {
+      "menuKey": "1",
+      "name": "Component instance",
+      "children": [
+        {
+          "menuKey": "1-1",
+          "path": "datePickerStr",
+          "name": "Time string"
+        },
+        {
+          "menuKey": "1-2",
+          "path": "remoteSelect",
+          "name": "Select remote search"
+        }
+      ]
+    }
+  ],
+  "LANG-JA": [
+    {
+      "menuKey": "1",
+      "name": "コンポーネントの例",
+      "children": [
+        {
+          "menuKey": "1-1",
+          "path": "datePickerStr",
+          "name": "時間文字列"
+        },
+        {
+          "menuKey": "1-2",
+          "path": "remoteSelect",
+          "name": "リモート検索"
+        }
+      ]
     }
   ]
-}]
+}
