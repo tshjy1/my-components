@@ -7,6 +7,8 @@ import VUEi18 from 'vue-i18n'
 import ViewUI from 'view-design'
 import 'view-design/dist/styles/iview.css'
 
+import './styles/index.less'
+
 import routerConfig from './router'
 import { components } from './components.js'
 import langSource from './lang/index'

@@ -30,9 +30,9 @@ export default {
   name: 'RemoteSelect',
   props: {
     value: [String, Number, Array],
-    loaddataFn: Function,
-    config: Object,
-    params: {
+    loadFn: Function,// 数据请求方法：返回前后端约定的报文格式
+    config: Object,// 配置select的key/value，和返回值
+    params: {// 其他附带的查询条件，
       type: Object,
       default() {
         return {}
@@ -79,10 +79,8 @@ export default {
         this.lastParamKey = paramKey
       }
 
-      // console.log(paramKey, queryStr)
-      // console.log(this.text, this.value)
       const customParams = Object.assign({ [paramKey]: queryStr }, this.params || {})
-      this.loaddataFn(
+      this.loadFn(
         prepareSelectQueryData(customParams)
       )
         .then(res => (res && res.data && res.data.records) || [])
@@ -99,7 +97,6 @@ export default {
           })
 
           this.dataList = res
-          // console.log(JSON.stringify(list[0]))
         })
     },
     onValueChange(queryInfo) {

@@ -84,7 +84,7 @@ export function removeClass(el, cls) {
 export function prepareSelectQueryData(conditionObj) {
   let queryObj = {
     pageNum: 0,
-    pageSize: window.RPConfig.largePageSize,
+    pageSize: 50,
     condition: {}
   }
 

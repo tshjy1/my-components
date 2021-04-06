@@ -1,32 +1,21 @@
 import modules from './modules/index.js'
+import common from './modules/common.js'
 
 export default {
   'LANG-CN': {
-    common: {
-      pleaseInput: '请输入',
-      user: '小青麟'
-    },
+    common: common['LANG-CN'],
     module: modules['LANG-CN']
   },
   'LANG-TRZH': {
-    common: {
-      pleaseInput: '請輸入',
-      user: '小青麟'
-    },
+    common: common['LANG-TRZH'],
     module: modules['LANG-TRZH']
   },
   'LANG-US': {
-    common: {
-      pleaseInput: 'Please input',
-      user: 'Xiao Qinglin'
-    },
+    common: common['LANG-US'],
     module: modules['LANG-US']
   },
   'LANG-JA': {
-    common: {
-      pleaseInput: '入力してください',
-      user: '小青麟'
-    },
+    common: common['LANG-JA'],
     module: modules['LANG-JA']
   }
 }

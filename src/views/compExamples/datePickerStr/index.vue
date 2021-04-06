@@ -19,8 +19,8 @@
       </Row>
       <Row>
         <Col span="8">
-          <Form-item prop="time" :label="$t('module.compExamples.test')">
-            <Input v-model="modelForm.dateValue" disabled/>
+          <Form-item :label="$t('module.compExamples.dateValueType')">
+            string
           </Form-item>
         </Col>
       </Row>
