@@ -64,7 +64,7 @@
   </div>
 </template>
 <script>
-import { hasClass } from "@/utils/assist.js";
+import { hasClass } from "../const";
 
 export default {
   name: "InnerPageTable",

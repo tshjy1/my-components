@@ -48,6 +48,8 @@
 </template>
 
 <script>
+import SelfAdaption from '../../../../packages/SelfAdaption/SelfAdaption'
+
 export default {
   data() {
     return {
@@ -118,6 +120,9 @@ export default {
         }
       ]
     }
+  },
+  created() {
+    console.log('-----------SelfAdaption----', SelfAdaption)
   },
   methods: {
     loadData(params) {

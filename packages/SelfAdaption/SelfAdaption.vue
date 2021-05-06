@@ -31,12 +31,12 @@
 </template>
 
 <script>
-import Locale from "@/mixins/locale";
-import debounce from "lodash.debounce";
+// import Locale from '@/mixins/locale';
+import debounce from 'lodash.debounce';
 
 export default {
-  name: "SelfAdaption",
-  mixins: [Locale],
+  name: 'SelfAdaption',
+  // mixins: [Locale],
   data() {
     return {
       upDownState: false // 状态，true为展开，false为收起
@@ -46,14 +46,14 @@ export default {
     onSearch: {
       type: String,
       default() {
-        return "";
+        return '';
       }
     }
   },
   computed: {
     lang() {
       let _store = this.$store || window.$store;
-      return _store && _store.state && _store.state["tsj-components"].lang;
+      return _store && _store.state && _store.state['tsj-components'].lang;
     }
   },
   watch: {
@@ -66,32 +66,32 @@ export default {
       let _self = this;
       _self.initSearchBar();
       _self._initSearchBar = debounce(_self.initSearchBar, 100);
-      window.addEventListener("resize", _self._initSearchBar);
+      window.addEventListener('resize', _self._initSearchBar);
     });
   },
   destroyed() {
-    window.removeEventListener("resize", this._initSearchBar);
+    window.removeEventListener('resize', this._initSearchBar);
   },
   // 页面缓存：取消监听
   deactivated() {
-    window.removeEventListener("resize", this._initSearchBar);
+    window.removeEventListener('resize', this._initSearchBar);
   },
   // 页面缓存重新添加监听
   activated() {
     this.$nextTick(() => {
       this.initSearchBar();
-      window.addEventListener("resize", this._initSearchBar);
+      window.addEventListener('resize', this._initSearchBar);
     });
   },
   methods: {
     // 展开收起操作
     handleUpDownOption(el) {
       let _thisEle = el.target.parentElement;
-      this.upDownState ? _thisEle.setAttribute("state", "") : _thisEle.setAttribute("state", "1");
+      this.upDownState ? _thisEle.setAttribute('state', '') : _thisEle.setAttribute('state', '1');
       this.upDownState = !this.upDownState;
 
       this.initSearchBar();
-      $channel.$emit("ChangeSelfAdaptionStatus");
+      // $channel.$emit('ChangeSelfAdaptionStatus');
     },
     initSearchBar() {
       // 计算搜索区域
@@ -105,14 +105,14 @@ export default {
         const w840 = 840;
         const w450 = 450;
         const w300 = 300;
-        const ivuLt300 = "ivu-lt300";
+        const ivuLt300 = 'ivu-lt300';
 
         //按钮区域
-        let searchBtnEle = searchBarEle.getElementsByClassName("search-solt-btn");
+        let searchBtnEle = searchBarEle.getElementsByClassName('search-solt-btn');
         //包括按钮的所有表单元素
-        let searchBarItem = searchBarEle.getElementsByClassName("ivu-form-item");
+        let searchBarItem = searchBarEle.getElementsByClassName('ivu-form-item');
         //整个组件外围元素
-        let searchBarWrap = searchBarEle.getElementsByClassName("search-bar-wrap")[0];
+        let searchBarWrap = searchBarEle.getElementsByClassName('search-bar-wrap')[0];
 
         let formItemCount = searchBarItem.length;
         //外围父元素宽度
@@ -120,7 +120,7 @@ export default {
 
         // 如果搜索插槽没有，则隐藏该插槽，避免div占位
         if (searchBarWrap && searchBarWrap.offsetHeight == 0) {
-          searchBarWrap.parentElement.style.display = "none";
+          searchBarWrap.parentElement.style.display = 'none';
         }
 
         let colNumber = 4;
@@ -148,7 +148,7 @@ export default {
             this.addClass(item, ivuLt300);
           } else {
             this.removeClass(item, ivuLt300);
-            item.style.width = 100 / colNumber + "%";
+            item.style.width = 100 / colNumber + '%';
           }
 
           // 存在按钮
@@ -157,25 +157,25 @@ export default {
             //展开时
             if (this.upDownState) {
               if (_index >= validColNumber && _index < notBtnItemsCount) {
-                item.style.display = "flex";
+                item.style.display = 'flex';
               }
               //折叠时
             } else {
               if (_index >= validColNumber && _index < notBtnItemsCount) {
-                item.style.display = "none";
+                item.style.display = 'none';
                 hideNumber++;
               } else {
-                item.style.display = "flex";
+                item.style.display = 'flex';
               }
             }
           }
         }
 
-        let flex86 = "search-flex-w86";
-        let flexSingle = "self-adaption-flex-single";
+        let flex86 = 'search-flex-w86';
+        let flexSingle = 'self-adaption-flex-single';
 
         // 没有隐藏子项，并且当前可显示数量大于或等于子项的长度, 则让搜索标题按不定宽显示
-        this.removeClass(searchBarWrap, "search-bar-option");
+        this.removeClass(searchBarWrap, 'search-bar-option');
         this.removeClass(searchBarEle, flexSingle);
 
         //无隐藏元素时
@@ -185,7 +185,7 @@ export default {
           this.addClass(searchBarEle, flex86);
           // 必须当按钮存在时才会出现操作展开、收起
           if (searchBtnEle.length) {
-            this.addClass(searchBarWrap, "search-bar-option");
+            this.addClass(searchBarWrap, 'search-bar-option');
           }
         }
 
@@ -195,32 +195,32 @@ export default {
         }
 
         // 如果是英文则子项的表单不左对齐，对子项中只做最大宽度限制为 子项宽度的 70%
-        let language = $store.state["tsj-components"].lang;
-        let lang_en = "search-flex-en";
-        switch (language) {
-          case "en-US":
-            this.addClass(searchBarEle, lang_en);
-            this.removeClass(searchBarEle, flex86);
-            break;
-          default:
-            this.removeClass(searchBarEle, lang_en);
-            break;
-        }
+        // let language = $store.state['tsj-components'].lang;
+        // let lang_en = 'search-flex-en';
+        // switch (language) {
+        //   case 'en-US':
+        //     this.addClass(searchBarEle, lang_en);
+        //     this.removeClass(searchBarEle, flex86);
+        //     break;
+        //   default:
+        //     this.removeClass(searchBarEle, lang_en);
+        //     break;
+        // }
       } catch (err) {
         console.error(err);
       }
     },
     setTitle(item) {
       // 非按钮元素
-      if (!this.hasClass(item, "search-solt-btn")) {
-        let itemLabelEle = item.getElementsByClassName("ivu-form-item-label")[0];
-        if (itemLabelEle && !itemLabelEle.getAttribute("title")) {
-          itemLabelEle.setAttribute("title", itemLabelEle.innerText);
+      if (!this.hasClass(item, 'search-solt-btn')) {
+        let itemLabelEle = item.getElementsByClassName('ivu-form-item-label')[0];
+        if (itemLabelEle && !itemLabelEle.getAttribute('title')) {
+          itemLabelEle.setAttribute('title', itemLabelEle.innerText);
         }
       }
     },
     hasClass(el, className) {
-      let reg = new RegExp("(^|\\s)" + className + "(\\s|$)");
+      let reg = new RegExp('(^|\\s)' + className + '(\\s|$)');
       return reg.test(el.className);
     },
     addClass(el, className) {
@@ -228,19 +228,19 @@ export default {
         return;
       }
 
-      let newClass = el.className.split(" ");
+      let newClass = el.className.split(' ');
       newClass.push(className);
-      el.className = newClass.join(" ");
+      el.className = newClass.join(' ');
     },
     removeClass(el, newClass) {
-      var defaultClass = el.className.split(" ");
-      var nClass = newClass.split(" ");
+      var defaultClass = el.className.split(' ');
+      var nClass = newClass.split(' ');
       let result = [];
       nClass.map(item => {
         result = defaultClass.filter(v => v != item);
         return item;
       });
-      el.className = result.join(" ");
+      el.className = result.join(' ');
     }
   }
 };
